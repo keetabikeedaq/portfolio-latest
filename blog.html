@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+    <style>
+
+        body{
+            background-color: black;
+
+        }
+
+        h1{
+            color:coral;
+            text-align: center;
+        }
+        h4{
+            color:coral;
+            text-align: center;
+        }
+         p{
+            color: white;
+            font-size: large;
+        }
+        li{
+            color:white;
+        }
+         img{
+            width:500px;
+            
+
+        }
+
+        .imgWrapper{
+display: flex;
+            justify-content: center;
+        }
+       
+           @media (max-width:480px){
+        img{
+            width:250px;
+
+        } 
+    }
+
+     @media (min-width: 1200px){
+
+        p{
+            font-size:30px;
+        }
+
+        h2,h1{
+            font-size: 35px;
+        }
+
+        a{
+            font-size: 30px;
+        }
+        
+    }
+
+     @media (max-width: 1200px){
+
+        p{
+            font-size:20px;
+        }
+
+        h2,h1{
+            font-size: 20px;
+        }
+
+        a{
+            font-size: 20px;
+        }
+        
+    }
+        </style>
+</head>
+<body>
+<h4>Blog 1</h4>
+
+<h1>What is IAM in AWS?</h1>
+
+<p>
+Explaining things in simple language is often a difficult task, so let’s understand this with a simple example. Imagine you buy a computer and install a new operating system. During the installation process, you are asked to create a user. This user is typically the root or admin user, which has full privileges to perform all operations.
+</p>
+
+<p>
+Now, suppose you have a sibling who also wants to use your computer, but you are concerned about giving them full access. Instead of sharing the admin account, you create another user with limited permissions perhaps access only to certain files or applications. 
+</p>
+
+<p>
+This is exactly what IAM (Identity and Access Management) in AWS does. You create IAM users using your root account and assign specific permissions so that they do not have the same level of access as the root user. These permissions are defined using policies, which are JSON documents. You can create these policies either through the AWS Management Console visually or by using a JSON editor.
+</p>
+
+<div class="imgWrapper"><img src="iam.png" alt="IAM groups and users"/></div>
+
+<p>
+You can also add IAM users to groups and assign common permissions to those groups. This makes permission management easier and more scalable.
+</p>
+
+<p>
+Keep in mind:
+<ul>
+<li>Users do not necessarily have to belong to a single group; they can be part of multiple groups.</li><br/>
+<li>Groups cannot be nested; a group cannot be part of another group.</li>
+</ul>
+</p>
+
+<p>
+Below is an example of how a typical IAM policy looks in JSON format:
+</p>
+
+<div class="imgWrapper"><img src="IAM_policy.png" alt="IAM policy structure"/></div>
+
+<p>
+It is always recommended to use a strong password and secure your account with MFA (Multi-Factor Authentication). You can use any authenticator app or a supported hardware device. For example, you can use Google Authenticator, but you are free to choose any option that suits you.
+</p>
+
+<h1>IAM Role</h1>
+
+<p>
+In simple terms, an IAM role is used to grant permissions to AWS services so they can perform specific tasks securely without exposing access keys.
+</p>
+
+<p>
+For example, suppose you launch an EC2 (Elastic Compute Cloud) instance. If you try to access AWS services from that instance without proper permissions, access will be denied unless you configure credentials (such as access keys). However, storing or exposing access keys can be risky, especially in production environments with sensitive applications.
+</p>
+
+<p>
+A better approach is to create an IAM role and attach it to the EC2 instance. The instance will automatically assume the role and obtain temporary credentials, allowing it to perform only the actions permitted by the attached policies without exposing any sensitive credentials.
+</p>
+
+---
+
+If you want, I can also make it more beginner-friendly, add diagrams explanations, or optimize it for SEO.
+
+</body>
+</html>
